@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <label for="idade" class="form-label">Digite sua idade</label>
+                <input type="number" id="idade" class="form-control"> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="alturaCm" class="form-label">Digite sua altura em centímetros</label>
+                <input type="number" id="alturaCm" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="pesoKg" class="form-label">Digite seu peso em quilogramas</label>
+                <input type="number" id="pesoKg" class="form-control">
+            </div>
+            <div class="col mt-4 p-2">
+                <button class="btn btn-primary" onclick="InserirValores()">
+                    Escolher Plano
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Plano</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col">Indicado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Básico A</td>
+                    <td id="valorBasicoA"></td>
+                    <td id="indicacaoBasicoA"></td>
+                </tr>
+                <tr>
+                    <td>Básico B</td>
+                    <td id="valorBasicoB"></td>
+                    <td id="indicacaoBasicoB"></td>
+                </tr>
+                <tr>
+                    <td>Standard A</td>
+                    <td id="valorStandardA"></td>
+                    <td id="indicacaoStandardA"></td>
+                </tr>
+                <tr>
+                    <td>Standard B</td>
+                    <td id="valorStandardB"></td>
+                    <td id="indicacaoStandardB"></td>
+                </tr>
+                <tr>
+                    <td>Premium A</td>
+                    <td id="valorPremiumA"></td>
+                    <td id="indicacaoPremiumA"></td>
+                </tr>
+                <tr>
+                    <td>Premium B</td>
+                    <td id="valorPremiumB"></td>
+                    <td id="indicacaoPremiumB"></td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>
