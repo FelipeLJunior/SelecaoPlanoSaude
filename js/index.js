@@ -17,6 +17,12 @@ function InserirValores()
 
 function IndicacaoBasico(planoBasicoA, planoBasicoB) 
 {
+    if(isNaN(planoBasicoA) || isNaN(planoBasicoB))
+    {
+        document.getElementById('indicacaoBasicoA').innerHTML = "Impossível calcular";
+        document.getElementById('indicacaoBasicoB').innerHTML = "Impossível calcular";
+        return ;
+    }
     if(planoBasicoA <= planoBasicoB) 
     {
         document.getElementById('indicacaoBasicoA').innerHTML = "Mais indicado";
@@ -30,6 +36,12 @@ function IndicacaoBasico(planoBasicoA, planoBasicoB)
 
 function IndicacaoStandard(planoStandardA, planoStandardB) 
 {
+    if(isNaN(planoStandardA) || isNaN(planoStandardB))
+    {
+        document.getElementById('indicacaoStandardA').innerHTML = "Impossível calcular";
+        document.getElementById('indicacaoStandardB').innerHTML = "Impossível calcular";
+        return ;
+    }
     if(planoStandardA <= planoStandardB) 
     {
         document.getElementById('indicacaoStandardA').innerHTML = "Mais indicado";
@@ -44,6 +56,13 @@ function IndicacaoStandard(planoStandardA, planoStandardB)
 
 function IndicacaoPremium(planoPremiumA, planoPremiumB) 
 {
+    if(isNaN(planoPremiumA) || isNaN(planoPremiumB)) 
+    {
+        document.getElementById('indicacaoPremiumA').innerHTML = "Impossível calcular";
+        document.getElementById('indicacaoPremiumB').innerHTML = "Impossível calcular";
+        return ;
+    }
+
     if(planoPremiumA <= planoPremiumB) 
     {
         document.getElementById('indicacaoPremiumA').innerHTML = "Mais indicado";
