@@ -8,33 +8,55 @@
     <script src="js/index.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid bg-primary">
         <div class="row">
-            <div class="col">
-                <label for="idade" class="form-label">Digite sua idade</label>
-                <input type="number" id="idade" class="form-control"> 
+            <div class="col text-center m-3">
+                <h1>
+                    Escolha de planos de saúde
+                </h1>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="alturaCm" class="form-label">Digite sua altura em centímetros</label>
-                <input type="number" id="alturaCm" class="form-control">
+                <div class="form-floating mt-2 mb-2">
+                    <input type="number" id="idade" class="form-control" placeholder="Digite sua idade" value="18">
+                    <label for="idade">Digite sua idade</label>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="pesoKg" class="form-label">Digite seu peso em quilogramas</label>
-                <input type="number" id="pesoKg" class="form-control">
+                <div class="form-floating mt-2 mb-2">
+                    <input type="number" id="alturaCm" class="form-control" placeholder="Digite sua altura em centímetros" value="170">
+                <label for="alturaCm">Digite sua altura em centímetros</label>
+                </div>
             </div>
-            <div class="col mt-4 p-2">
-                <button class="btn btn-primary" onclick="InserirValores()">
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-floating mt-2 mb-2">
+                    <input type="number" id="pesoKg" class="form-control" placeholder="Digite seu peso em quilogramas" value="70">
+                <label for="pesoKg">Digite seu peso em quilogramas</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-end p-3">
+                <button class="btn btn-success" onclick="InserirValores()">
                     Escolher Plano
                 </button>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <table class="table">
+    <div class="container-fluid bg-primary pt-3 pb-5">
+        <div class="row">
+            <div class="col text-center pb-3">
+                <h2>
+                    Tabela de resultados
+                </h2>
+            </div>
+        </div>
+        <table class="table table-info table-striped table-hover table-bordered">
             <thead>
                 <tr>
                   <th scope="col">Plano</th>
@@ -45,33 +67,33 @@
             <tbody>
                 <tr>
                     <td>Básico A</td>
-                    <td id="valorBasicoA"></td>
-                    <td id="indicacaoBasicoA"></td>
+                    <td id="valorBasicoA">0.0</td>
+                    <td id="indicacaoBasicoA">Não calculado</td>
                 </tr>
                 <tr>
                     <td>Básico B</td>
-                    <td id="valorBasicoB"></td>
-                    <td id="indicacaoBasicoB"></td>
+                    <td id="valorBasicoB">0.0</td>
+                    <td id="indicacaoBasicoB">Não calculado</td>
                 </tr>
                 <tr>
                     <td>Standard A</td>
-                    <td id="valorStandardA"></td>
-                    <td id="indicacaoStandardA"></td>
+                    <td id="valorStandardA">0.0</td>
+                    <td id="indicacaoStandardA">Não calculado</td>
                 </tr>
                 <tr>
                     <td>Standard B</td>
-                    <td id="valorStandardB"></td>
-                    <td id="indicacaoStandardB"></td>
+                    <td id="valorStandardB">0.0</td>
+                    <td id="indicacaoStandardB">Não calculado</td>
                 </tr>
                 <tr>
                     <td>Premium A</td>
-                    <td id="valorPremiumA"></td>
-                    <td id="indicacaoPremiumA"></td>
+                    <td id="valorPremiumA">0.0</td>
+                    <td id="indicacaoPremiumA">Não calculado</td>
                 </tr>
                 <tr>
                     <td>Premium B</td>
-                    <td id="valorPremiumB"></td>
-                    <td id="indicacaoPremiumB"></td>
+                    <td id="valorPremiumB">0.0</td>
+                    <td id="indicacaoPremiumB">Não calculado</td>
                 </tr>
             </tbody>
           </table>
