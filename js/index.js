@@ -57,11 +57,6 @@ function OperadoraB()
 {
     const imc = CalcularIMC();
     const fatorComorbidade = FatorComorbidade(imc);
-    
-    if(isNaN(imc) || isNaN(fatorComorbidade))
-    {
-        return { NaN, NaN, NaN };
-    }
 
     const valorBasicoB = 100 + (fatorComorbidade * 10 * (imc / 10));
     const valorStandardB = (150 + (fatorComorbidade * 15)) * (imc / 10);
@@ -72,11 +67,6 @@ function OperadoraB()
 
 function FatorComorbidade(imc)
 {
-    if(isNaN(imc))
-    {
-        return NaN;
-    }
-    
     var fatorComorbidade = 0;
 
     if(imc < 18,5) 
@@ -106,12 +96,7 @@ function OperadoraA()
 {
     const imc = CalcularIMC();
     const idade = document.getElementById('idade').value;
-    
-    if(isNaN(idade) || isNaN(imc))
-    {
-        return { NaN, NaN, NaN };
-    }
-    
+
     const valorBasicoA = 100 + (idade * 10 * (imc / 10));
     const valorStandardA = (150 + (idade * 15)) * (imc / 10);
     const valorPremiumA = (200 - (imc * 10) + (idade * 20)) * (imc / 10);
@@ -123,11 +108,6 @@ function CalcularIMC()
 {
     const alturaCm = document.getElementById('alturaCm').value;
     const pesoKg = document.getElementById('pesoKg').value;
-
-    if(isNaN(alturaCm) || isNaN(pesoKg))
-    {
-        return { NaN };
-    }
     
     const alturaM = alturaCm / 100;
     const imc = pesoKg / (alturaM * alturaM);
