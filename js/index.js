@@ -95,7 +95,7 @@ function FatorComorbidade(imc)
 function OperadoraA() 
 {
     const imc = CalcularIMC();
-    const idade = document.getElementById('idade').value;
+    const idade = Number(document.getElementById('idade').value);
 
     const valorBasicoA = 100 + (idade * 10 * (imc / 10));
     const valorStandardA = (150 + (idade * 15)) * (imc / 10);
@@ -106,8 +106,8 @@ function OperadoraA()
 
 function CalcularIMC() 
 {
-    const alturaCm = document.getElementById('alturaCm').value;
-    const pesoKg = document.getElementById('pesoKg').value;
+    const alturaCm = Number(document.getElementById('alturaCm').value);
+    const pesoKg = Number(document.getElementById('pesoKg').value);
     
     const alturaM = alturaCm / 100;
     const imc = pesoKg / (alturaM * alturaM);
