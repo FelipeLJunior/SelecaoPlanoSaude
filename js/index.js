@@ -3,76 +3,54 @@ function InserirValores()
     const { valorBasicoA, valorStandardA, valorPremiumA } = OperadoraA();
     const { valorBasicoB, valorStandardB, valorPremiumB } = OperadoraB();
 
-    document.getElementById('valorBasicoA').innerHTML = valorBasicoA.toFixed(2);
-    document.getElementById('valorBasicoB').innerHTML = valorBasicoB.toFixed(2);
-    document.getElementById('valorStandardA').innerHTML = valorStandardA.toFixed(2);
-    document.getElementById('valorStandardB').innerHTML = valorStandardB.toFixed(2);
-    document.getElementById('valorPremiumA').innerHTML = valorPremiumA.toFixed(2);
-    document.getElementById('valorPremiumB').innerHTML = valorPremiumB.toFixed(2);
-
-    IndicacaoBasico(valorBasicoA, valorBasicoB);
-    IndicacaoStandard(valorStandardA, valorStandardB);
-    IndicacaoPremium(valorPremiumA, valorPremiumB);
+    Ordenacao(valorBasicoA, valorBasicoB, valorStandardA, valorStandardB, valorPremiumA, valorPremiumB);
 }
 
-function IndicacaoBasico(planoBasicoA, planoBasicoB) 
+function Ordenacao(valorBasicoA, valorBasicoB, valorStandardA, valorStandardB, valorPremiumA, valorPremiumB) 
 {
-    if(isNaN(planoBasicoA) || isNaN(planoBasicoB))
-    {
-        document.getElementById('indicacaoBasicoA').innerHTML = "Impossível calcular";
-        document.getElementById('indicacaoBasicoB').innerHTML = "Impossível calcular";
-        return ;
-    }
-    if(planoBasicoA <= planoBasicoB) 
-    {
-        document.getElementById('indicacaoBasicoA').innerHTML = "Mais indicado";
-        document.getElementById('indicacaoBasicoB').innerHTML = "Menos indicado";
-    } else 
-    {
-        document.getElementById('indicacaoBasicoB').innerHTML = "Mais indicado";
-        document.getElementById('indicacaoBasicoA').innerHTML = "Menos indicado";
-    }
-}
+    var valores = [
+            {nome : "Basico A", valor : valorBasicoA}, 
+            {nome : "Basico B", valor : valorBasicoB}, 
+            {nome : "Standard A", valor : valorStandardA}, 
+            {nome : "Standard B", valor : valorStandardB}, 
+            {nome : "Premium A", valor : valorPremiumA},
+            {nome : "Premium B", valor : valorPremiumB}
+    ]; 
 
-function IndicacaoStandard(planoStandardA, planoStandardB) 
-{
-    if(isNaN(planoStandardA) || isNaN(planoStandardB))
+    for(i = 0; i < valores.length; i++)
     {
-        document.getElementById('indicacaoStandardA').innerHTML = "Impossível calcular";
-        document.getElementById('indicacaoStandardB').innerHTML = "Impossível calcular";
-        return ;
-    }
-    if(planoStandardA <= planoStandardB) 
-    {
-        document.getElementById('indicacaoStandardA').innerHTML = "Mais indicado";
-        document.getElementById('indicacaoStandardB').innerHTML = "Menos indicado";
-        
-    } else 
-    {
-        document.getElementById('indicacaoStandardB').innerHTML = "Mais indicado";
-        document.getElementById('indicacaoStandardA').innerHTML = "Menos indicado";
-    }
-}
-
-function IndicacaoPremium(planoPremiumA, planoPremiumB) 
-{
-    if(isNaN(planoPremiumA) || isNaN(planoPremiumB)) 
-    {
-        document.getElementById('indicacaoPremiumA').innerHTML = "Impossível calcular";
-        document.getElementById('indicacaoPremiumB').innerHTML = "Impossível calcular";
-        return ;
+        for(j = i; j < valores.length; j++)
+        {
+            if(valores[i].valor > valores[j].valor)
+            {
+                var receptor = valores[i];
+                valores[i] = valores[j];
+                valores[j] = receptor;
+            }
+        }
     }
 
-    if(planoPremiumA <= planoPremiumB) 
-    {
-        document.getElementById('indicacaoPremiumA').innerHTML = "Mais indicado";
-        document.getElementById('indicacaoPremiumB').innerHTML = "Menos indicado";
-        
-    } else 
-    {
-        document.getElementById('indicacaoPremiumB').innerHTML = "Mais indicado";
-        document.getElementById('indicacaoPremiumA').innerHTML = "Menos indicado";
-    }
+    document.getElementById('nomePrimeiro').innerHTML = valores[0].nome;
+    document.getElementById('nomeSegundo').innerHTML = valores[1].nome;
+    document.getElementById('nomeTerceiro').innerHTML = valores[2].nome;
+    document.getElementById('nomeQuarto').innerHTML = valores[3].nome;
+    document.getElementById('nomeQuinto').innerHTML = valores[4].nome;
+    document.getElementById('nomeSexto').innerHTML = valores[5].nome;
+    
+    document.getElementById('valorPrimeiro').innerHTML = valores[0].valor.toFixed(2);
+    document.getElementById('valorSegundo').innerHTML = valores[1].valor.toFixed(2);
+    document.getElementById('valorTerceiro').innerHTML = valores[2].valor.toFixed(2);
+    document.getElementById('valorQuarto').innerHTML = valores[3].valor.toFixed(2);
+    document.getElementById('valorQuinto').innerHTML = valores[4].valor.toFixed(2);
+    document.getElementById('valorSexto').innerHTML = valores[5].valor.toFixed(2);
+
+    document.getElementById('indicacaoPrimeiro').innerHTML = "Baritíssimo";
+    document.getElementById('indicacaoSegundo').innerHTML = "Barato";
+    document.getElementById('indicacaoTerceiro').innerHTML = "Bom";
+    document.getElementById('indicacaoQuarto').innerHTML = "Razoável";
+    document.getElementById('indicacaoQuinto').innerHTML = "Caro";
+    document.getElementById('indicacaoSexto').innerHTML = "Caríssimo";
+
 }
 
 function OperadoraB()
@@ -80,6 +58,11 @@ function OperadoraB()
     const imc = CalcularIMC();
     const fatorComorbidade = FatorComorbidade(imc);
     
+    if(isNaN(imc) || isNaN(fatorComorbidade))
+    {
+        return { NaN, NaN, NaN };
+    }
+
     const valorBasicoB = 100 + (fatorComorbidade * 10 * (imc / 10));
     const valorStandardB = (150 + (fatorComorbidade * 15)) * (imc / 10);
     const valorPremiumB = (200 - (imc * 10) + (fatorComorbidade * 20)) * (imc / 10);
@@ -89,6 +72,11 @@ function OperadoraB()
 
 function FatorComorbidade(imc)
 {
+    if(isNaN(imc))
+    {
+        return NaN;
+    }
+    
     var fatorComorbidade = 0;
 
     if(imc < 18,5) 
@@ -119,6 +107,10 @@ function OperadoraA()
     const imc = CalcularIMC();
     const idade = document.getElementById('idade').value;
     
+    if(isNaN(idade) || isNaN(imc))
+    {
+        return { NaN, NaN, NaN };
+    }
     
     const valorBasicoA = 100 + (idade * 10 * (imc / 10));
     const valorStandardA = (150 + (idade * 15)) * (imc / 10);
@@ -132,6 +124,10 @@ function CalcularIMC()
     const alturaCm = document.getElementById('alturaCm').value;
     const pesoKg = document.getElementById('pesoKg').value;
 
+    if(isNaN(alturaCm) || isNaN(pesoKg))
+    {
+        return { NaN };
+    }
     
     const alturaM = alturaCm / 100;
     const imc = pesoKg / (alturaM * alturaM);
