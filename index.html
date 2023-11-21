@@ -1,102 +1,102 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo</title>
-    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
-    <script src="js/index.js"></script>
-</head>
-<body>
-    <div class="container-fluid bg-primary">
-        <div class="row">
-            <div class="col text-center m-3">
-                <h1>
-                    Escolha de planos de saúde
-                </h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-floating mt-2 mb-2">
-                    <input type="number" id="idade" class="form-control" placeholder="Digite sua idade">
-                    <label for="idade">Digite sua idade</label>
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Titulo</title>
+        <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid bg-primary">
+            <h1 class="text-center p-3">
+                Escolha de planos de saúde
+            </h1>
+            <div class="divisor">
+                <div class="bloco">
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="text-center m-3">
+                                Inserção de Dados
+                            </h2>
+                            <div class="form-floating mt-2 mb-2">
+                                <input type="number" id="idade" class="form-control" placeholder="Digite sua idade">
+                                <label for="idade">Digite sua idade</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mt-2 mb-2">
+                                <input type="number" id="alturaCm" class="form-control" placeholder="Digite sua altura em centímetros">
+                            <label for="alturaCm">Digite sua altura em centímetros</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mt-2 mb-2">
+                                <input type="number" id="pesoKg" class="form-control" placeholder="Digite seu peso em quilogramas">
+                            <label for="pesoKg">Digite seu peso em quilogramas</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-end p-3">
+                            <button class="btn btn-success" onclick="InserirValores()">
+                                Escolher Plano
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloco">
+                    <h2 class="text-center mb-3">
+                        Tabela de resultados
+                    </h2>
+                    <table class="table table-info table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                            <th scope="col">Plano</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">Indicado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="nomePrimeiro">1° Plano</td>
+                                <td id="valorPrimeiro">0.0</td>
+                                <td id="indicacaoPrimeiro">Não calculado</td>
+                            </tr>
+                            <tr>
+                                <td id="nomeSegundo">2° Plano</td>
+                                <td id="valorSegundo">0.0</td>
+                                <td id="indicacaoSegundo">Não calculado</td>
+                            </tr>
+                            <tr>
+                                <td id="nomeTerceiro">3° Plano</td>
+                                <td id="valorTerceiro">0.0</td>
+                                <td id="indicacaoTerceiro">Não calculado</td>
+                            </tr>
+                            <tr>
+                                <td id="nomeQuarto">4° Plano</td>
+                                <td id="valorQuarto">0.0</td>
+                                <td id="indicacaoQuarto">Não calculado</td>
+                            </tr>
+                            <tr>
+                                <td id="nomeQuinto">5° Plano</td>
+                                <td id="valorQuinto">0.0</td>
+                                <td id="indicacaoQuinto">Não calculado</td>
+                            </tr>
+                            <tr>
+                                <td id="nomeSexto">6° Plano</td>
+                                <td id="valorSexto">0.0</td>
+                                <td id="indicacaoSexto">Não calculado</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-floating mt-2 mb-2">
-                    <input type="number" id="alturaCm" class="form-control" placeholder="Digite sua altura em centímetros">
-                <label for="alturaCm">Digite sua altura em centímetros</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-floating mt-2 mb-2">
-                    <input type="number" id="pesoKg" class="form-control" placeholder="Digite seu peso em quilogramas">
-                <label for="pesoKg">Digite seu peso em quilogramas</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col d-flex justify-content-end p-3">
-                <button class="btn btn-success" onclick="InserirValores()">
-                    Escolher Plano
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid bg-primary pt-3 pb-5">
-        <div class="row">
-            <div class="col text-center pb-3">
-                <h2>
-                    Tabela de resultados
-                </h2>
-            </div>
-        </div>
-        <table class="table table-info table-striped table-hover table-bordered">
-            <thead>
-                <tr>
-                  <th scope="col">Plano</th>
-                  <th scope="col">Valor</th>
-                  <th scope="col">Indicado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td id="nomePrimeiro">1° Plano</td>
-                    <td id="valorPrimeiro">0.0</td>
-                    <td id="indicacaoPrimeiro">Não calculado</td>
-                </tr>
-                <tr>
-                    <td id="nomeSegundo">2° Plano</td>
-                    <td id="valorSegundo">0.0</td>
-                    <td id="indicacaoSegundo">Não calculado</td>
-                </tr>
-                <tr>
-                    <td id="nomeTerceiro">3° Plano</td>
-                    <td id="valorTerceiro">0.0</td>
-                    <td id="indicacaoTerceiro">Não calculado</td>
-                </tr>
-                <tr>
-                    <td id="nomeQuarto">4° Plano</td>
-                    <td id="valorQuarto">0.0</td>
-                    <td id="indicacaoQuarto">Não calculado</td>
-                </tr>
-                <tr>
-                    <td id="nomeQuinto">5° Plano</td>
-                    <td id="valorQuinto">0.0</td>
-                    <td id="indicacaoQuinto">Não calculado</td>
-                </tr>
-                <tr>
-                    <td id="nomeSexto">6° Plano</td>
-                    <td id="valorSexto">0.0</td>
-                    <td id="indicacaoSexto">Não calculado</td>
-                </tr>
-            </tbody>
-          </table>
-    </div>
-</body>
-</html>
+    </body>
+    </html>
